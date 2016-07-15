@@ -1,1 +1,1 @@
-# Spring MVC Starter
+# Basic Configuration for Spring MVC project

@@ -20,6 +20,9 @@
 
         <spring-test.version>4.2.5.RELEASE</spring-test.version>
         <spring-webmvc.version>4.2.5.RELEASE</spring-webmvc.version>
+
+        <jackson.version>2.8.0</jackson.version>
+        <hibernate-validator.version>5.2.4.Final</hibernate-validator.version>
     </properties>
 
     <dependencies>
@@ -70,6 +73,18 @@
             <artifactId>spring-webmvc</artifactId>
             <version>${spring-webmvc.version}</version>
             <scope>compile</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>com.fasterxml.jackson.core</groupId>
+            <artifactId>jackson-databind</artifactId>
+            <version>${jackson.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.hibernate</groupId>
+            <artifactId>hibernate-validator</artifactId>
+            <version>${hibernate-validator.version}</version>
         </dependency>
     </dependencies>
 
