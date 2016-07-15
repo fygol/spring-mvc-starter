@@ -15,7 +15,7 @@ import javax.validation.Valid;
 public class UserController {
 
     @RequestMapping(value = "/create", method = RequestMethod.POST)
-    public @ResponseBody User createUser(@RequestBody @Valid User user, BindingResult errors) {
+    public @ResponseBody User createUser(@Valid @RequestBody User user, BindingResult errors) {
         if(errors.hasErrors()) {
             System.out.println("Validation errors");
         } else {
