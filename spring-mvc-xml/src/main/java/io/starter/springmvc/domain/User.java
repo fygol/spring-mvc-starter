@@ -15,6 +15,8 @@ public class User {
 
     private long timestamp;
 
+    private int age;
+
     public String getEmail() {
         return email;
     }
@@ -37,5 +39,13 @@ public class User {
 
     public void setTimestamp(long timestamp) {
         this.timestamp = timestamp;
+    }
+
+    public int getAge() {
+        return age;
+    }
+
+    public void setAge(int age) {
+        this.age = age;
     }
 }

@@ -2,6 +2,7 @@
 
 ### Configure DispatcherServlet
 
+src/main/webapp/WEB-INF/web.xml:
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
 <web-app xmlns="http://xmlns.jcp.org/xml/ns/javaee"
@@ -33,6 +34,7 @@
 
 ## Configure web context
 
+src/main/webapp/WEB-INF/webContext.xml:
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
@@ -43,6 +45,8 @@
             http://www.springframework.org/schema/context
             http://www.springframework.org/schema/context/spring-context.xsd">
 
+    <mvc:annotation-driven/>
+    
     <context:component-scan base-package="io.starter.springmvc.web"/>
 
     <bean id="jspViewResolver" class="org.springframework.web.servlet.view.InternalResourceViewResolver">
