@@ -1,4 +1,4 @@
-package io.starter.springmvc.controller;
+package io.starter.springmvc.web;
 
 import io.starter.springmvc.domain.User;
 import org.springframework.stereotype.Controller;
@@ -15,7 +15,8 @@ import javax.validation.Valid;
 public class UserController {
 
     @RequestMapping(value = "/create", method = RequestMethod.POST)
-    public @ResponseBody User createUser(@Valid @RequestBody User user, BindingResult errors) {
+    @ResponseBody
+    public User createUser(@Valid @RequestBody User user, BindingResult errors) {
         if(errors.hasErrors()) {
             System.out.println("Validation errors");
         } else {

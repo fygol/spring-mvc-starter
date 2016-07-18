@@ -1,0 +1,1 @@
+# Basic XML Configuration for Spring MVC Project
