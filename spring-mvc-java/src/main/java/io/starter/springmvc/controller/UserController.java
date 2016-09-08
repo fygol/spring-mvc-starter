@@ -3,6 +3,7 @@ package io.starter.springmvc.controller;
 import io.starter.springmvc.domain.User;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -17,13 +18,23 @@ public class UserController {
     @RequestMapping(value = "/create", method = RequestMethod.POST)
     @ResponseBody
     public User createUser(@Valid @RequestBody User user, BindingResult errors) {
-        if(errors.hasErrors()) {
+        if (errors.hasErrors()) {
             System.out.println("Validation errors");
         } else {
             System.out.println("Validation ok");
         }
 
         user.setTimestamp(System.currentTimeMillis());
+
+        return user;
+    }
+
+    @RequestMapping(value = "/{id}", method = RequestMethod.GET)
+    @ResponseBody
+    public User getUserById(@PathVariable Long id) {
+        User user = new User();
+        user.setTimestamp(System.currentTimeMillis());
+        user.setEmail("aaa@mail.com");
 
         return user;
     }
