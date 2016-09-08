@@ -1,6 +1,8 @@
 package io.starter.springmvc.controller;
 
 import io.starter.springmvc.domain.User;
+import io.starter.springmvc.service.UserService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -14,6 +16,13 @@ import javax.validation.Valid;
 @Controller
 @RequestMapping("/user")
 public class UserController {
+
+    private UserService userService;
+
+    @Autowired
+    public UserController(UserService userService) {
+        this.userService = userService;
+    }
 
     @RequestMapping(value = "/create", method = RequestMethod.POST)
     @ResponseBody
@@ -32,11 +41,7 @@ public class UserController {
     @RequestMapping(value = "/{id}", method = RequestMethod.GET)
     @ResponseBody
     public User getUserById(@PathVariable Long id) {
-        User user = new User();
-        user.setTimestamp(System.currentTimeMillis());
-        user.setEmail("aaa@mail.com");
-
-        return user;
+        return userService.findById(id);
     }
 
 }
