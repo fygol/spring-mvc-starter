@@ -9,6 +9,7 @@ public class UserService {
         User user = new User();
         user.setTimestamp(System.currentTimeMillis());
         user.setEmail("aaa@mail.com");
+        user.setPassword("secret4u");
 
         return user;
     }

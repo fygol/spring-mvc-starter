@@ -27,6 +27,8 @@ import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 import org.springframework.web.context.WebApplicationContext;
 
+import java.util.stream.Stream;
+
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(classes = {RootConfig.class, WebConfig.class, UserControllerTest.Config.class})
 @WebAppConfiguration
@@ -44,6 +46,11 @@ public class UserControllerTest {
     public void setUp() throws Exception {
         MockitoAnnotations.initMocks(this);
         mockMvc = MockMvcBuilders.webAppContextSetup(ctx).build();
+    }
+
+    @Test
+    public void springContextShouldBeLoaded() throws Exception {
+        Stream.of(ctx.getBeanDefinitionNames()).forEach(System.out::println);
     }
 
     @Test
